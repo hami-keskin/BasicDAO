@@ -102,6 +102,75 @@ Deployed on the Scroll Sepolia testnet: 0xEF88cf32fB039AeC2a705F6eDd9FA481145ddc
     }
     ```
 
+## Setting Up Development Environment with thirdweb
+
+### Clone the Repository
+
+```sh
+git clone https://github.com/hami-keskin/BasicDAO.git
+```
+
+### Install Dependencies
+
+```sh
+npm install
+```
+
+### Configure thirdweb for Deployment
+
+1. Install thirdweb:
+    ```sh
+    npm install @thirdweb-dev/sdk ethers
+    ```
+
+2. Create a `thirdweb.config.js` file in the root directory with the following content:
+
+    ```javascript
+    import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+    import { ethers } from "ethers";
+
+    // Initialize thirdweb SDK with the Scroll Sepolia RPC URL
+    const sdk = new ThirdwebSDK(new ethers.Wallet(
+        process.env.PRIVATE_KEY, 
+        ethers.getDefaultProvider("https://sepolia-rpc.scroll.io")
+    ));
+
+    export default sdk;
+    ```
+
+### Deploy the Contract
+
+1. Create a `scripts/deploy.js` file with the following content:
+
+    ```javascript
+    import sdk from "../thirdweb.config.js";
+    import fs from "fs";
+
+    (async () => {
+        try {
+            const contract = await sdk.deployContract({
+                abi: JSON.parse(fs.readFileSync("./artifacts/contracts/BasicDAO.sol/BasicDAO.json")).abi,
+                bytecode: JSON.parse(fs.readFileSync("./artifacts/contracts/BasicDAO.sol/BasicDAO.json")).bytecode,
+                constructorArgs: [1000000000000], // Set your membership fee here
+            });
+
+            console.log("Contract deployed to address:", contract.address);
+        } catch (error) {
+            console.error("Failed to deploy contract:", error);
+        }
+    })();
+    ```
+
+2. Deploy the contract:
+    ```sh
+    node scripts/deploy.js
+    ```
+
+### Verify Deployment
+
+- Check the deployed contract functions using a Web3 provider or thirdweb SDK.
+- Ensure the contract address is correctly documented in this README.md file.
+
 ## Enhancements
 
 - **Token-Based Voting:** Implement voting power based on the number of governance tokens.
@@ -114,3 +183,4 @@ MIT
 
 ---
 
+By following these instructions, you'll be able to set up and deploy a basic DAO on the Scroll blockchain using thirdweb. This setup allows for easy collaboration and further development, providing a foundation for more advanced DAO features.
