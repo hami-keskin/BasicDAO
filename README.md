@@ -29,51 +29,6 @@ Deployed on the Scroll Sepolia testnet: [Your Contract Address Here]
 
 - `finalizeProposal(uint _proposalId)`: Only the owner can finalize proposals once the voting period is over.
 
-## Setting Up Development Environment
-
-### Clone the Repository
-
-```sh
-git clone https://github.com/hami-keskin/BasicDAO.git
-```
-
-### Install Dependencies
-
-```sh
-npm install
-```
-
-### Compile the Contract
-
-```sh
-npx hardhat compile
-```
-
-### Deploy to Scroll Sepolia Testnet
-
-1. Configure the Scroll Sepolia network in `hardhat.config.js`:
-    ```javascript
-    module.exports = {
-        networks: {
-            scrollSepolia: {
-                url: "https://sepolia-rpc.scroll.io",
-                accounts: ["YOUR_PRIVATE_KEY"]
-            }
-        },
-        solidity: "0.8.25",
-    };
-    ```
-
-2. Deploy the contract:
-    ```sh
-    npx hardhat run scripts/deploy.js --network scrollSepolia
-    ```
-
-### Verify Deployment
-
-- Check the deployed contract functions using a Web3 provider or Hardhat console.
-- Ensure the contract address is correctly documented in this README.md file.
-
 ## Contract Functions
 
 ### Membership
