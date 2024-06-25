@@ -34,7 +34,7 @@ Deployed on the Scroll Sepolia testnet: [Your Contract Address Here]
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/hami-keskin/BasicDAO.git
 ```
 
 ### Install Dependencies
