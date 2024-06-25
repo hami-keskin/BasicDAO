@@ -6,7 +6,7 @@ This project implements a basic Decentralized Autonomous Organization (DAO) on t
 
 ## Contract Address
 
-Deployed on the Scroll Sepolia testnet: [Your Contract Address Here]
+Deployed on the Scroll Sepolia testnet: 0xEF88cf32fB039AeC2a705F6eDd9FA481145ddc93
 
 ## How It Works
 
@@ -114,10 +114,3 @@ MIT
 
 ---
 
-### Additional Notes
-
-1. Replace `[Your Contract Address Here]` with the actual deployed contract address on Scroll Sepolia.
-2. Ensure the GitHub repository link is accurate.
-3. Add detailed instructions in `scripts/deploy.js` for deployment.
-
-By following these instructions, you'll be able to set up and deploy a basic DAO on the Scroll blockchain. This setup allows for easy collaboration and further development, providing a foundation for more advanced DAO features.
